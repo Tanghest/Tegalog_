@@ -1,0 +1,58 @@
+
+<!-- ========================================== -->
+<!-- ▼1投稿ごとのボックス (画像一覧内側スキン) -->
+<!-- ※この部分のHTMLに対する装飾は tegalog-picts.css 内の『■投稿ボックス(1画像)ごとの表示』部分に記述しています。 -->
+
+<!-- ▼単独表示時用 -->
+[[IF(onelog):
+	<!-- ――――――――――――――――――――――――――――――――― -->
+	<!-- ※このIF文の内側領域は、単独表示時にしかHTMLとして出力されません。 -->
+	<!-- ――――――――――――――――――――――――――――――――― -->
+	<div class="forOnePict [[POSTSTATUS]]" id="pos[[LOOPCOUNT]]">
+		<p class="pictTitle">[[COMMENT:LINE:1]]</p> <!-- ←画像一覧モードでは、本文1行目にキャプション(または画像ファイル名)が入ります。 -->
+		<div class="onePictBox">[[COMMENT:LINE:2]]</div> <!-- ←画像一覧モードでは、本文2行目に画像表示(PICT:FIG:記法)が入ります。 -->
+		<div class="onePictMeta">
+			<ul>
+				<li class="pictSize">
+					<small>File Size:</small>
+					[[COMMENT:LINE:3]] <!-- ←画像一覧モードでは、本文3行目に画像のファイルサイズが単位付きで入ります。 -->
+				</li>
+				<li class="pictDate">
+					<small>Date:</small>
+					<span class="postdate">[[DATE:Y/M/D(b) h:m:s]]</span> <!-- ←画像ファイルのタイムスタンプを指定書式で表示。詳しい記法や例は https://www.nishishi.com/cgi/tegalog/custom/#customizeinfo-dateformat をご覧下さい。 -->
+					<span class="newflag">[[NEW]]</span> <!-- ←新着を示す表示 -->
+				</li>
+				<li class="pictOwner">
+					<small>Posted by:</small>
+					<!-- ▽画像一覧モードを維持した状態のユーザ限定ページへのリンク -->
+					<a href="[[USERURL]]&amp;mode=picts">
+						[[USERNAME]] ([[USERID]]) <!-- ユーザ名とユーザID -->
+						<span class="usericon">[[USERICON]]</span> <!-- ユーザアイコン -->
+					</a>
+				</li>
+			</ul>
+			<p class="onePictSearch">
+				<a href="?q=PICT:%20[[COMMENT:LINE:5]]" class="pictSearchBtn">この画像が使われている投稿を見る &raquo;</a> <!-- ←画像一覧モードでは、本文5行目に画像のファイル名が入りますから、それを検索語に利用しています。 -->
+			</p>
+		</div>
+	</div><!-- /.forOnePict -->
+:IF]]
+<!-- ▲単独表示時用（ここまで） -->
+
+<!-- ▼一覧表示時用 -->
+[[IF(-onelog):
+	<!-- ―――――――――――――――――――――――――――――――――――――――― -->
+	<!-- ※このIF文の内側領域は、単独表示『ではない』状況でしかHTMLとして出力されません。 -->
+	<!-- ―――――――――――――――――――――――――――――――――――――――― -->
+	<div class="forList [[POSTSTATUS]]">
+		<div class="imagebox">
+			[[COMMENT:LINE:2]]
+			<span class="newSign">[[NEW]]</span>
+		</div>
+		<div class="pictCtrlBox">
+			<span class="pictNum"><a href="[[PERMAURL]]&amp;mode=picts">詳細</a></span> <!-- ←画像の単独表示ページに移動するリンク -->
+			<span class="pictSearch"><a href="?q=PICT:%20[[COMMENT:LINE:5]]" class="pictSearchBtn">この画像が使われている投稿を見る &raquo;</a></span>
+		</div>
+	</div>
+:IF]]
+<!-- ▲一覧表示時用（ここまで） -->

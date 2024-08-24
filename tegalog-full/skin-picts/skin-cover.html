@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="[[CHARCODE]]"> <!-- ←ここ(CHARCODE)に文字コードが入ります。 -->
+	<!-- ▼ここに、状況に応じたタイトル、主タイトル、副タイトルが並んで入ります。(※表示内容は、管理画面の「設定」内の「フリースペース」ページで自由に設定できます。) -->
+	<title>[[SITUATION:TITLE]] [[FREE:TITLE:MAIN]] [[FREE:TITLE:SUB]]</title>
+	<meta name="viewport" content="initial-scale=1">
+	<link type="text/css" rel="stylesheet" href="tegalog-picts.css?v420">
+	<!-- ▼ここに(状況に依存しない版の)RSSフィードを絶対URLで示すAuto-Discoveryのlink要素が入ります(RSSが出力されている場合のみ)。タイトルにはフリースペースの「主タイトル」が使われます。※画像一覧をRSSにしたい場合には別の工夫が必要です。 -->
+	[[RSS:AUTODISCOVERY:FULL]]
+	<!-- ▼ここに、状況に応じたOGP＋Twitter Cardの記述が入ります。※不要なら「設定」→「補助設定」で出力しない設定にして下さい。 -->
+	[[OGP]]
+</head>
+<body class="[[SITUATION:CLASS]]"><!-- ←ここに現在の表示状況を示すサイン群が入ります。(状況に応じた装飾に使えます。) -->
+
+	<!-- ===================================================================================================== -->
+	<!-- お手軽マイクロブログCGI「てがろぐ」画像一覧スキン for Ver 4.2.0以降： ご自由に改変してご使用下さい。  -->
+	<!-- ===================================================================================================== -->
+	<!-- このファイルのほか、内側スキン(skin-onelog.html)とスタイルシート(tegalog-picts.css)を併せて使います。 -->
+	<!-- スキン内の挿入キーワードの書き方は、配布サイト https://www.nishishi.com/cgi/tegalog/ 内の https://www.nishishi.com/cgi/tegalog/custom/#howtocustomizeskin 等をご参照下さい。 -->
+	<!-- ※このスキンは、画像一覧モード用のスキンとして利用されることを想定しています。(画像一覧モード以外で使うと、投稿本文が一部しか表示されないほか、一部のリンクが正しく機能しません。) -->
+
+	<!-- ――――――――――――― -->
+	<!-- ▼ページ最上部(ヘッダ)領域 -->
+	<!-- ――――――――――――― -->
+	<header>
+		<div class="headtitle">
+			<h1 class="maintitle">
+				<!-- ▼ここにHOMEへ戻るリンクが挿入されます。 -->
+				<a href="[[HOME:URL]]">
+					<!-- ▼ここに主タイトルが挿入されます。 -->
+					[[FREE:TITLE:MAIN]]
+					<!-- ▼ここに副タイトルが挿入されます。 -->
+					<small class="subtitle">[[FREE:TITLE:SUB]]</small>
+				</a>
+			</h1>
+			<p class="mainguide">
+				<!-- ▼ここに一行概要文が挿入されます。 -->
+				[[FREE:DESCRIPTION]]
+			</p>
+		</div>
+		<div class="headcontrol">
+			<div class="searcharea">
+				<!-- ▼ここに検索窓が挿入されます。 -->
+				[[SEARCHBOX]]
+			</div>
+		</div>
+	</header>
+
+	<!-- ■PictSkin■ -->
+
+	<!-- ―――― -->
+	<!-- ▼大外枠 -->
+	<!-- ―――― -->
+	<div class="contents">
+
+		<!-- ====================== -->
+		<!-- ▼メイン(ログ掲載)領域 -->
+		<!-- ====================== -->
+		<div class="mainarea">
+
+			<!-- ▼ここに状況に応じた見出しが挿入されます。(表示条件が限定されていない場面では何も挿入されません。) ※これを削除すると動作状況が分かりにくくなってしまいますのでご注意下さい。 -->
+			[[SITUATION:HTML]]
+			<!-- ▼ここに投稿内容が挿入されます。(投稿1つ1つのフォーマットは「内側スキン」ファイル側に記載します。) ※これを消してしまうとCGIが動作しません。 -->
+			<div class="tegalogImages">
+				[[TEGALOG]]
+			</div>
+
+			<!-- ‥‥‥‥‥‥‥‥‥‥‥‥‥ -->
+			<!-- ▼ページナビゲーション領域 -->
+			<!-- ‥‥‥‥‥‥‥‥‥‥‥‥‥ -->
+			<div class="pagenavi">
+				<p class="pagelinks">
+					<!-- ▼ここに前後のページへ移動するリンクが挿入されます。(※前後のページがある場合のみ／※1投稿の単独表示時には前後の投稿へ移動するリンクが挿入されますが、設定で挿入しないようにもできます。) -->
+					[[NAVI:PREVNEXT]]
+				</p>
+				<p class="pagenums">
+					<!-- ▼ここにページ番号の一覧リンクが挿入されます。(※2ページ以上ある状況でのみ) -->
+					[[NAVI:PAGELIST]]
+				</p>
+				<p class="pagehome">
+					<!-- ▼ここに(表示中のモードを維持した状態で)トップページに戻るリンクが挿入されます。(※初期状態以外の状態で表示されている場合のみ出力されます) -->
+					[[NAVI:TOPPAGE:KEEPMODE]]
+				</p>
+			</div><!-- /.pagenavi -->
+
+		</div><!-- /.mainarea -->
+
+	</div><!-- /.contents -->
+
+	<!-- ========== -->
+	<!-- ▼サブ領域 -->
+	<!-- ========== -->
+	<div class="subarea">
+
+		<!-- ‥‥‥‥‥‥‥‥‥‥ -->
+		<!-- ▼フリースペース領域 -->
+		<!-- ‥‥‥‥‥‥‥‥‥‥ -->
+		<div class="freespacearea">
+			<p class="cornertitle">■[[FREESPTITLE]]</p><!-- ←ここにフリースペース用のタイトルが挿入されます。 -->
+			<div class="freespacebody">
+				<!-- ▼ここにフリースペース本文が挿入されます。(※区切り文字を使えば、別々の内容を表示する複数個のフリースペースを作ることもできます。詳しくは公式説明書 https://www.nishishi.com/cgi/tegalog/#specification-freespace をご参照下さい。) -->
+				[[FREESPACE]]
+			</div>
+			<p class="freespaceedit">
+				<a href="[[FREESPACEEDIT:URL]]">編集</a> <!-- フリースペース編集用リンク -->
+			</p>
+		</div>
+
+		<!-- ‥‥‥‥‥‥‥‥ -->
+		<!-- ▼複合検索窓領域 -->
+		<!-- ‥‥‥‥‥‥‥‥ -->
+		<div class="complexsearcharea">
+			<p class="cornertitle">■複合検索：</p>
+			<!-- ▼ここに複合検索フォームが挿入されます。 -->
+			[[SEARCHBOX:COMPLEX:UDOM]]	<!-- 掲載要素と順序(取捨選択順序自由)： U=投稿者、D=投稿年月、O=出力順序、M=モード維持 (詳細はヘルプをご覧下さい) ※画像一覧モードでは「H=ハッシュタグ、C=カテゴリ」を指定しても意味がありません(何もヒットしません)。 -->
+			<p class="searchguide">
+				※画像一覧モード内では、画像ファイル名やキャプション、付加されたフラグ名を検索語にして検索できます。AND検索のほか、OR(|)、NOT(-)検索も可能です。
+			</p>
+		</div>
+
+		<!-- ‥‥‥‥‥‥‥‥‥ -->
+		<!-- ▼直書きリンク領域 -->
+		<!-- ‥‥‥‥‥‥‥‥‥ -->
+		<div class="dlinkarea">
+			<p class="cornertitle">▼表示モード：</p>
+			<ul>
+				<li><a href="?">デフォルトのHOMEに戻る</a></li>
+				<li><a href="[[GALLERY:URL]]">ギャラリーモードで表示</a></li> <!-- ここにギャラリーページへのURLが相対パスで入ります。 -->
+				<li><a href="[[SITEMAP:URL]]">サイトマップモードで表示</a></li> <!-- ここにサイトマップページへのURLが相対パスで入ります。 -->
+			</ul>
+			<ul class="forListOnly">
+				<li><a href="[[REVERSE:URL]]">今の表示を[[REVERSE:NAME]]で見る</a></li> <!-- ここに今の表示を逆順にするURLと、今の表示を逆順にした場合の並び順(昇順/降順)の名称が入ります。 -->
+			</ul>
+		</div>
+
+	</div><!-- /.subarea -->
+
+	<!-- ■PictSkin■ -->
+
+	<!-- ――――――――――――― -->
+	<!-- ▼ページ最下部(フッタ)領域 -->
+	<!-- ――――――――――――― -->
+	<footer>
+		<p class="control-links">
+			<a href="[[HOME:URL]]">[[FREE:TITLE:MAIN]]TOP</a><!-- ここ(HOME:URL)にCGIトップページへのURLが入ります。 --> /
+			<a href="[[NEWPOST:URL]]">新規投稿</a><!-- ここ(NEWPOST:URL)に新規投稿画面へのURLが入ります。 --> /
+			<a href="[[ADMIN:URL]]">管理画面</a><!-- ここ(ADMIN:URL)に管理画面へのURLが入ります。 -->
+		</p>
+		<p class="backlink">[[FREE:HOMELINK]]</p><!-- ここにウェブサイトのHOMEへ戻るリンクが挿入されます。(戻り先は、管理画面の「フリースペース」で設定できます。 -->
+
+		<p class="poweredby">[[VERSION]].</p><!-- ここにPoweredby表記が挿入されます。この記述は必須です。削除したり見えにくくしたりせずにお使い下さい。(移動や装飾はご自由にどうぞ) -->
+	</footer>
+
+	<!-- ――――――――――――― -->
+	<!-- ▼遅延読み込みスクリプト群 -->
+	<!-- ――――――――――――― -->
+	<!-- ▼ここに（Lightboxが必要な状況でのみ）jQuery＋Lightboxスクリプトが読み込まれます。※JavaScriptとCSSがCDN経由で読み込まれます。※jQueryだけが不要なら「:JQ」を削除して下さい。 -->
+	<!-- ※Lightbox自体が不要ならこの行自体を削除して下さい。画像を表示しないならLightboxは確実に不要です。※表示される投稿文中に、Lightbox用の属性が1つも登場しない場面では何も挿入されません。) -->
+	[[JS:LIGHTBOX:JQ]]
+
+</body>
+</html>
